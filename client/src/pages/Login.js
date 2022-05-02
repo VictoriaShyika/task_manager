@@ -13,9 +13,9 @@ export const Login = () => {
       }),
     };
 
-    fetch("/members", opts)
+    fetch("/login", opts)
       .then((resp) => {
-        if (resp.status === 200) return resp.json();
+        if (resp.status === 200) return console.log(resp.json())
         else alert("There has been some error");
       })
       .then(

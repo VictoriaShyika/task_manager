@@ -2,12 +2,11 @@ from flask import Flask
 
 app = Flask(__name__)
 
-# Member of Api Route
 
-
-@app.route("/members")
+@app.route("/login", methods=["POST"])
 def members():
-    return {"members": ["Member1", "Member2", "Member3"]}
+    """Login function"""
+    return {"token": "dhafkjahlfashfahdalbksdk431243"}
 
 
 if __name__ == "__main__":
