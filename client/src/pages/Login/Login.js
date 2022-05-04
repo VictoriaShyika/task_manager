@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context";
 import "./Login.css";
 
-export const Login = () => {
+export default function Login(){
   const { isAuth, setIsAuth } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");

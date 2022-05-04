@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../context";
 import Home from "../pages/Home";
-import { Login } from "../pages/Login/Login";
+import Login from "../pages/Login/Login";
+import { privateRoutes, publicRoutes } from "../router";
 
 const AppRouter = () => {
   const { isAuth, isLoading } = useContext(AuthContext);
@@ -12,14 +13,31 @@ const AppRouter = () => {
   }
   return isAuth ? (
     <Routes>
-      <Route path="/home" element={<Home />} />
+      {privateRoutes.map((route) => {
+        return (
+          <Route
+            path={route.path}
+            element={<route.component />}
+            key={route.path}
+          />
+        );
+      })}
       <Route path="*" element={<Navigate replace to="/home" />} />
     </Routes>
   ) : (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      {publicRoutes.map((route) => {
+        return (
+          <Route
+            path={route.path}
+            element={<route.component />}
+            key={route.path}
+          />
+        );
+      })}
       <Route path="*" element={<Navigate replace to="/login" />} />
     </Routes>
   );
 };
 export default AppRouter;
+
