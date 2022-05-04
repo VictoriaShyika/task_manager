@@ -41,12 +41,9 @@ export default function Login(){
                 className="card bg-dark text-white"
                 style={{ borderRadius: "1rem" }}
               >
-                <div className="card-body p-5 text-center">
-                  <div className="mb-md-5 mt-md-4 pb-5">
-                    <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-                    <p className="text-white-50 mb-5">
-                      Please enter your login and password!
-                    </p>
+                <div className="card-body px-5 py-5 text-center">
+                  <div className="mb-md-2 mt-md-2">
+                    
                     <div className="form-white mb-4">
                       <input
                         className="form-control form-control-lg bg-dark text-white"

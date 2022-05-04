@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../context";
-import Home from "../pages/Home";
+import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import { privateRoutes, publicRoutes } from "../router";
 
@@ -9,7 +9,13 @@ const AppRouter = () => {
   const { isAuth, isLoading } = useContext(AuthContext);
 
   if (isLoading) {
-    return <div>Loader</div>;
+    return (
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
   return isAuth ? (
     <Routes>
@@ -40,4 +46,3 @@ const AppRouter = () => {
   );
 };
 export default AppRouter;
-
