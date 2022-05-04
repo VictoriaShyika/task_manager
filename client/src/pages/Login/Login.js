@@ -19,14 +19,14 @@ export default function Login(){
 
     fetch("/login", opts)
       .then((resp) => {
-        if (resp.status === 200) {
-          return resp.json();
-        } else alert("There has been some error");
+        return resp.json();
       })
       .then((data) => {
-        setIsAuth(true);
-        sessionStorage.setItem("token", data.token);
-        console.log(data.token);
+        if (data.token) {
+            sessionStorage.setItem("token", data.token);
+            setIsAuth(true);
+            console.log(">>>> Token after login", data.token);
+        } else console.log(">>>> Error when login", data.error);
       })
       .catch((error) => console.error("There was an error!", error));
   };
