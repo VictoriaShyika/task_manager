@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 LOGINS = ["app", "hello", "good"]
 PATHWORDS = {
-    "app": 123,
-    "hello": 321,
-    "good": 12345,
+    "app": "123",
+    "hello": "321",
+    "good": "12345",
 }
 
 
@@ -21,7 +21,7 @@ def login():
     password = request_json.get("password")
     if login not in LOGINS:
         return {"error": "This login isn't exist"}, 400
-    if PATHWORDS.get(login) == password:
+    if PATHWORDS.get(login) != password:
         return {"error": "Invalid password"}, 400
     return {"token": str(random.randint(100000000000000000, 1000000000000000000))}
 
