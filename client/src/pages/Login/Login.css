@@ -1,8 +1,25 @@
 .gradient-custom {
-/* background: #6a11cb; */
-background: linear-gradient(to right, rgb(206, 211, 216), rgb(139, 185, 236))
+  /* background: #6a11cb; */
+  background: linear-gradient(to right, rgb(206, 211, 216), rgb(139, 185, 236));
 }
-.form-control:focus, .form-control:hover, .btn:focus, .btn:hover {
-    border-color: white;
-    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+.form-control:focus,
+.form-control:hover,
+.btn:focus,
+.btn:hover {
+  border-color: white;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+}
+.error {
+  position: relative;
+  animation: shake 0.1s linear;
+  animation-iteration-count: 3;
+}
+
+@keyframes shake {
+  0% {
+    left: -5px;
+  }
+  100% {
+    right: -5px;
+  }
 }

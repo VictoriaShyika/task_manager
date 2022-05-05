@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context";
 
 export default function Navbar() {
@@ -17,12 +18,16 @@ export default function Navbar() {
         </span>
         <div className="ml-auto">
           {!isAuth ? (
-          <></>
+            <>
+              <Link to="/login" className="btn btn-outline-light px-4 mx-2">
+                Login
+              </Link>
+              <Link to="/signup" className="btn btn-outline-light px-4 mx-2 ">
+                Sign Up
+              </Link>
+            </>
           ) : (
-            <button
-              onClick={logout}
-              className="btn btn-outline-light px-4 "
-            >
+            <button onClick={logout} className="btn btn-outline-light px-4 ">
               Logout
             </button>
           )}
