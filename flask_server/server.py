@@ -25,6 +25,10 @@ def login():
         return {"error": "Invalid password"}, 400
     return {"token": str(random.randint(100000000000000000, 1000000000000000000))}
 
+@app.route("/signup", methods=["POST"])
+def signup():
+    """Sign Up function"""
+    return {"token": "LALALLALALAALLALA"}
 
 @app.route("/home", methods=["GET"])
 def home():
