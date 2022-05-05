@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthContext } from "../context";
-import Home from "../pages/Home/Home";
-import Login from "../pages/Login/Login";
 import { privateRoutes, publicRoutes } from "../router";
 
 const AppRouter = () => {
