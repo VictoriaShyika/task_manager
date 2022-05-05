@@ -4,6 +4,7 @@ import { AuthContext } from "../../context";
 export default function SignUn() {
   const { isAuth, setIsAuth } = useContext(AuthContext);
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,6 +12,7 @@ export default function SignUn() {
     const opts = {
       method: "POST",
       body: JSON.stringify({
+        name: name,
         email: email,
         password: password,
       }),
@@ -47,8 +49,8 @@ export default function SignUn() {
                     <input
                       className="form-control form-control-lg bg-dark text-white"
                       type="text"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       placeholder="Name"
                     />
                   </div>
