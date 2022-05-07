@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import Button from "../../components/UI/Button";
+import Input from "../../components/UI/Input";
 import { AuthContext } from "../../context";
 
 export default function SignUn() {
@@ -8,7 +10,26 @@ export default function SignUn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [emptyName, setEmptyName] = useState(false);
+  const [emptyEmail, setEmptyEmail] = useState(false);
+  const [emptyPassword, setEmptyPassword] = useState(false);
+
   const handleClick = () => {
+    setEmptyName(false);
+    setEmptyEmail(false);
+    setEmptyPassword(false);
+
+    if (name === "" || name == null) {
+      setEmptyEmail("Please fill name field");
+      return console.log("Please fill name field");
+    } else if (email === "" || email == null) {
+      setEmptyPassword("Please fill email field");
+      return console.log("Please fill email field");
+    } else if (password === "" || password == null) {
+      setEmptyPassword("Please fill password field");
+      return console.log("Please fill password field");
+    }
+
     const opts = {
       method: "POST",
       body: JSON.stringify({
@@ -28,7 +49,7 @@ export default function SignUn() {
           setIsAuth(true);
           console.log(">>>> Token after login", data.token);
         } else {
-        //   setError(data.error);
+          //   setError(data.error);
           console.log(">>>> Error when login", data.error);
         }
       })
@@ -45,9 +66,8 @@ export default function SignUn() {
             >
               <div className="card-body px-5 py-5 text-center">
                 <div className="mb-md-2 mt-md-2">
-                <div className="form-white mb-4">
-                    <input
-                      className="form-control form-control-lg bg-dark text-white"
+                  <div className="form-white mb-4">
+                    <Input
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -55,8 +75,7 @@ export default function SignUn() {
                     />
                   </div>
                   <div className="form-white mb-4">
-                    <input
-                      className="form-control form-control-lg bg-dark text-white"
+                    <Input
                       type="text"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -64,24 +83,38 @@ export default function SignUn() {
                     />
                   </div>
                   <div className="form-white mb-4">
-                    <input
-                      className={
-                        "form-control form-control-lg bg-dark text-white"
-                      }
+                    <Input
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Password"
                     />
                   </div>
+                  {emptyName ? (
+                    <p className="fw-lighter text-danger text-opacity-75">
+                      {emptyName}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                  {emptyEmail ? (
+                    <p className="fw-lighter text-danger text-opacity-75">
+                      {emptyEmail}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                  {emptyPassword ? (
+                    <p className="fw-lighter text-danger text-opacity-75">
+                      {emptyPassword}
+                    </p>
+                  ) : (
+                    ""
+                  )}
 
-                  <button
-                    className="btn btn-outline-light btn-lg px-5"
-                    type="submit"
-                    onClick={handleClick}
-                  >
+                  <Button type="submit" onClick={handleClick}>
                     Sign In
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

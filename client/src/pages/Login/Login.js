@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import Button from "../../components/UI/Button";
+import Input from "../../components/UI/Input";
 import { AuthContext } from "../../context";
 import "./Login.css";
 
@@ -16,7 +18,7 @@ export default function Login() {
   const handleClick = () => {
     setEmptyEmail(false);
     setEmptyPassword(false);
-    setError("")
+    setError("");
 
     if (email === "" || email == null) {
       setEmptyEmail("Please fill email field");
@@ -25,7 +27,7 @@ export default function Login() {
       setEmptyPassword("Please fill password field");
       return console.log("Please fill password field");
     }
-    
+
     const opts = {
       method: "POST",
       body: JSON.stringify({
@@ -64,8 +66,7 @@ export default function Login() {
                 <div className="card-body px-5 py-5 text-center">
                   <div className="mb-md-2 mt-md-2">
                     <div className="form-white mb-4">
-                      <input
-                        className="form-control form-control-lg bg-dark text-white"
+                      <Input
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -73,16 +74,14 @@ export default function Login() {
                       />
                     </div>
                     <div className="form-white mb-4">
-                      <input
-                        className={
-                          "form-control form-control-lg bg-dark text-white"
-                        }
+                      <Input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                       />
                     </div>
+                    
                     {emptyEmail ? (
                       <p className="fw-lighter text-danger text-opacity-75">
                         {emptyEmail}
@@ -105,13 +104,9 @@ export default function Login() {
                       ""
                     )}
 
-                    <button
-                      className="btn btn-outline-light btn-lg px-5"
-                      type="submit"
-                      onClick={handleClick}
-                    >
+                    <Button type="submit" onClick={handleClick}>
                       Login
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
