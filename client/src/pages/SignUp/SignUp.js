@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import Button from "../../components/UI/Button";
+import Input from "../../components/UI/Input";
 import { AuthContext } from "../../context";
 
 export default function SignUn() {
@@ -66,8 +67,7 @@ export default function SignUn() {
               <div className="card-body px-5 py-5 text-center">
                 <div className="mb-md-2 mt-md-2">
                   <div className="form-white mb-4">
-                    <input
-                      className="form-control form-control-lg bg-dark text-white"
+                    <Input
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -75,8 +75,7 @@ export default function SignUn() {
                     />
                   </div>
                   <div className="form-white mb-4">
-                    <input
-                      className="form-control form-control-lg bg-dark text-white"
+                    <Input
                       type="text"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -84,10 +83,7 @@ export default function SignUn() {
                     />
                   </div>
                   <div className="form-white mb-4">
-                    <input
-                      className={
-                        "form-control form-control-lg bg-dark text-white"
-                      }
+                    <Input
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}

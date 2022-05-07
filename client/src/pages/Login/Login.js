@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import Button from "../../components/UI/Button";
+import Input from "../../components/UI/Input";
 import { AuthContext } from "../../context";
 import "./Login.css";
 
@@ -65,8 +66,7 @@ export default function Login() {
                 <div className="card-body px-5 py-5 text-center">
                   <div className="mb-md-2 mt-md-2">
                     <div className="form-white mb-4">
-                      <input
-                        className="form-control form-control-lg bg-dark text-white"
+                      <Input
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -74,16 +74,14 @@ export default function Login() {
                       />
                     </div>
                     <div className="form-white mb-4">
-                      <input
-                        className={
-                          "form-control form-control-lg bg-dark text-white"
-                        }
+                      <Input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                       />
                     </div>
+                    
                     {emptyEmail ? (
                       <p className="fw-lighter text-danger text-opacity-75">
                         {emptyEmail}
