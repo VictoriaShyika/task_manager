@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import Button from "../../components/UI/Button";
 import { AuthContext } from "../../context";
 
 export default function SignUn() {
@@ -11,7 +12,6 @@ export default function SignUn() {
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
   const [emptyPassword, setEmptyPassword] = useState(false);
-
 
   const handleClick = () => {
     setEmptyName(false);
@@ -95,34 +95,30 @@ export default function SignUn() {
                     />
                   </div>
                   {emptyName ? (
-                      <p className="fw-lighter text-danger text-opacity-75">
-                        {emptyName}
-                      </p>
-                    ) : (
-                      ""
-                    )}
+                    <p className="fw-lighter text-danger text-opacity-75">
+                      {emptyName}
+                    </p>
+                  ) : (
+                    ""
+                  )}
                   {emptyEmail ? (
-                      <p className="fw-lighter text-danger text-opacity-75">
-                        {emptyEmail}
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                    {emptyPassword ? (
-                      <p className="fw-lighter text-danger text-opacity-75">
-                        {emptyPassword}
-                      </p>
-                    ) : (
-                      ""
-                    )}
+                    <p className="fw-lighter text-danger text-opacity-75">
+                      {emptyEmail}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                  {emptyPassword ? (
+                    <p className="fw-lighter text-danger text-opacity-75">
+                      {emptyPassword}
+                    </p>
+                  ) : (
+                    ""
+                  )}
 
-                  <button
-                    className="btn btn-outline-light btn-lg px-5"
-                    type="submit"
-                    onClick={handleClick}
-                  >
+                  <Button type="submit" onClick={handleClick}>
                     Sign In
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

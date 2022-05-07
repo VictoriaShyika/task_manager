@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import Button from "../../components/UI/Button";
 import { AuthContext } from "../../context";
 import "./Login.css";
 
@@ -16,7 +17,7 @@ export default function Login() {
   const handleClick = () => {
     setEmptyEmail(false);
     setEmptyPassword(false);
-    setError("")
+    setError("");
 
     if (email === "" || email == null) {
       setEmptyEmail("Please fill email field");
@@ -25,7 +26,7 @@ export default function Login() {
       setEmptyPassword("Please fill password field");
       return console.log("Please fill password field");
     }
-    
+
     const opts = {
       method: "POST",
       body: JSON.stringify({
@@ -105,13 +106,9 @@ export default function Login() {
                       ""
                     )}
 
-                    <button
-                      className="btn btn-outline-light btn-lg px-5"
-                      type="submit"
-                      onClick={handleClick}
-                    >
+                    <Button type="submit" onClick={handleClick}>
                       Login
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
