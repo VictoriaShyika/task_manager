@@ -10,6 +10,8 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [addTask, setAddTask] = useState(false);
+
   useEffect(() => {
     if (sessionStorage.getItem("token")) {
       setIsAuth(true);
@@ -19,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading }}>
+      <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading, addTask, setAddTask }}>
         <Navbar />
         <AppRouter />
       </AuthContext.Provider>

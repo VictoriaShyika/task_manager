@@ -14,16 +14,8 @@ export default function Home() {
 
   return (
     <div>
-      <section className="vh-100 gradient-custom">
-        <div className="container ">
-          <div className="row d-flex justify-content-center py-5 h-100 ">
-            {/* <div
-              className="card-body  text-white bg-light"
-            > */}
-              <TasksPage />
-            {/* </div> */}
-          </div>
-        </div>
+      <section className="vh-100 bg-primary bg-opacity-25" >
+        <TasksPage />
       </section>
     </div>
   );
