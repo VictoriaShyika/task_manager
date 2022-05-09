@@ -11,6 +11,9 @@ export default function SignUn() {
   const handleClick = () => {
     const opts = {
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: name,
         email: email,

@@ -28,6 +28,9 @@ export default function Login() {
     
     const opts = {
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         email: email,
         password: password,
@@ -44,8 +47,8 @@ export default function Login() {
           setIsAuth(true);
           console.log(">>>> Token after login", data.token);
         } else {
-          setError(data.error);
-          console.log(">>>> Error when login", data.error);
+          setError(data.error_message);
+          console.log(">>>> Error when login", data.error_message);
         }
       })
       .catch((error) => console.error("There was an error!", error));
