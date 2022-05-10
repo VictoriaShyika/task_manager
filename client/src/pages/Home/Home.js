@@ -1,30 +1,48 @@
 import React, { useEffect, useState } from "react";
 import TasksPage from "../../components/TasksPage";
+import { connect } from "react-redux";
+import { createTask, removeTask, editTask } from "../../actions";
 
-export default function Home() {
+function Home(props) {
   // const [someText, setSomeTesxt] = useState("");
 
   // useEffect(() => {
-  //   fetch("/home")
+  //   fetch("http://127.0.0.1:8000/home")
   //     .then((response) => response.json())
   //     .then((data) => {
   //       setSomeTesxt(data.text);
   //     });
   // }, []);
 
+  const onStatusChange = (id, status) => {
+    props.dispatch(editTask(id, { status }));
+  };
+
+  const onCreateTask = ({ title, description }) => {
+    props.dispatch(createTask({ title, description }));
+  };
+
+  const onRemoveTask = (id) => {
+    props.dispatch(removeTask(id));
+  };
+
   return (
     <div>
-      <section className="vh-100 gradient-custom">
-        <div className="container ">
-          <div className="row d-flex justify-content-center py-5 h-100 ">
-            {/* <div
-              className="card-body  text-white bg-light"
-            > */}
-              <TasksPage />
-            {/* </div> */}
-          </div>
-        </div>
+      <section className="min-vh-100 bg-primary bg-opacity-25">
+        <TasksPage
+          tasks={props.tasks}
+          onStatusChange={onStatusChange}
+          onCreateTask={onCreateTask}
+          onRemoveTask={onRemoveTask}
+        />
       </section>
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    tasks: state.tasks,
+  };
+};
+export default connect(mapStateToProps)(Home);
