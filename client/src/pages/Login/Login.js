@@ -36,9 +36,10 @@ export default function Login() {
         password: password,
       }),
     };
-
-    fetch("/login", opts)
+    console.log(opts);
+    fetch("http://127.0.0.1:8000/login", opts)
       .then((resp) => {
+        console.log(resp)
         return resp.json();
       })
       .then((data) => {

@@ -21,7 +21,7 @@ export default function SignUn() {
       }),
     };
 
-    fetch("/signup", opts)
+    fetch("http://127.0.0.1:8000/signup", opts)
       .then((resp) => {
         return resp.json();
       })

@@ -16,9 +16,9 @@ DATABASE = {
         "password": "ajax",
         "tokens": []
     }, {
-        "name": "Vika",
+        "name": "vika",
         "email": "ajax2@gmail.com",
-        "password": "qwerty",
+        "password": "123",
         "tokens": []
     }
     ]
@@ -28,13 +28,12 @@ DATABASE = {
 @api_view(["POST"])
 def login(request):
     """Login function"""
-    print("GOOOD")
     current_user = None
-    request_json = request.POST
-    email = request_json.get("email")
+    request_json = request.data
+    login = request_json.get("email")
     password = request_json.get("password")
     for user in DATABASE["users"]:
-        if user["email"] == email:
+        if user["email"] == login or user["name"] == login:
             current_user = user
             break
     if not current_user:
@@ -53,3 +52,32 @@ def login(request):
             "success": True,
             "token": token
         })
+
+
+@api_view(["POST"])
+def signup(request):
+    """Sign Up function"""
+
+    request_json = request.POST
+    name = request_json.get("name")
+    email = request_json.get("email")
+    password = request_json.get("password")
+    token = random.randint(100000, 10000000)
+    DATABASE["users"].append({
+        "name": name,
+        "email": email,
+        "password": password,
+        "tokens": [token]
+    })
+
+    print("DATABASE = ", DATABASE)
+    return Response({
+        "success": True,
+        "token": token
+    })
+
+
+# @app.route("/home", methods=["GET"])
+@api_view(["GET"])
+def home(request):
+    return Response({"text": "This page need to show your Tasks"})

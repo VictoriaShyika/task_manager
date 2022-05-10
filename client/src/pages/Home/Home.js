@@ -4,7 +4,7 @@ export default function Home() {
   const [someText, setSomeTesxt] = useState("");
 
   useEffect(() => {
-    fetch("/home")
+    fetch("http://127.0.0.1:8000/home")
       .then((response) => response.json())
       .then((data) => {
         setSomeTesxt(data.text);
