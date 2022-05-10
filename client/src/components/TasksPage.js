@@ -9,7 +9,6 @@ import Error from "./UI/Error";
 const TASKS_STATUSES = ["On Hold", "To Do", "In Progress", "Done"];
 
 const TasksPage = (props) => {
-
   const { addTask, setAddTask } = useContext(AuthContext);
 
   const [title, setTitle] = useState("");
@@ -71,9 +70,10 @@ const TasksPage = (props) => {
     <div
       className="row"
       style={{
-        paddingTop: "57px",
+        padding: "57px",
         paddingLeft: "8%",
         paddingRight: "8%",
+        paddingBottom: "5px",
         margin: "0",
       }}
     >
@@ -100,7 +100,7 @@ const TasksPage = (props) => {
             <Button type="submit">Submit</Button>
           </form>
         )}
-        <div className="card-group" style={{ borderRadius: "0.5rem" }} >
+        <div className="card-group" style={{ borderRadius: "0.5rem" }}>
           {renderTaskLists()}
         </div>
       </div>
@@ -109,4 +109,3 @@ const TasksPage = (props) => {
 };
 
 export default TasksPage;
-

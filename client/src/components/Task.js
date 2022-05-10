@@ -29,9 +29,9 @@ const Task = (props) => {
         ></button>
       </div>
       <div className="px-2" style={{ borderBottom: "solid gray 1px" }}>
-        <h2 className="card-title mt-3 text-uppercase px-2">
+        <h3 className="card-title mt-3 text-uppercase px-2" >
           {props.task.title}
-        </h2>
+        </h3>
         <p className="card-text mb-3 fw-bold px-2">{props.task.description}</p>
       </div>
     </>

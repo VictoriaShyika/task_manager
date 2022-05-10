@@ -28,7 +28,7 @@ function Home(props) {
 
   return (
     <div>
-      <section className="vh-100 bg-primary bg-opacity-25">
+      <section className="min-vh-100 bg-primary bg-opacity-25">
         <TasksPage
           tasks={props.tasks}
           onStatusChange={onStatusChange}
