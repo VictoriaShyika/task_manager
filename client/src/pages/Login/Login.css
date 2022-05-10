@@ -9,3 +9,14 @@
   border-color: white;
   box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.5);
 }
+select:focus,
+select:hover {
+  box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.5);
+}
+select {
+  border: none;
+  outline: none;
+}
+option {
+  font-weight: bold;
+}

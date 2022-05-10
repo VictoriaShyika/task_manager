@@ -13,7 +13,7 @@ const Task = (props) => {
     <>
       <div className="d-flex justify-content-between mx-1 my-1">
         <form onChange={onStatusChange}>
-          <select defaultValue={props.task.status}>
+          <select className="form-select-sm bg-dark text-white fw-bold" defaultValue={props.task.status}>
             {TASKS_STATUSES.map((status) => (
               <option value={status} key={status}>
                 {status}
