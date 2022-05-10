@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import TasksPage from "../../components/TasksPage";
+import { connect } from "react-redux";
+import { createTask, removeTask, editTask } from "../../actions";
 
-export default function Home() {
+function Home(props) {
   // const [someText, setSomeTesxt] = useState("");
 
   // useEffect(() => {
@@ -12,11 +14,35 @@ export default function Home() {
   //     });
   // }, []);
 
+  const onStatusChange = (id, status) => {
+    props.dispatch(editTask(id, { status }));
+  };
+
+  const onCreateTask = ({ title, description }) => {
+    props.dispatch(createTask({ title, description }));
+  };
+
+  const onRemoveTask = (id) => {
+    props.dispatch(removeTask(id));
+  };
+
   return (
     <div>
-      <section className="vh-100 bg-primary bg-opacity-25" >
-        <TasksPage />
+      <section className="vh-100 bg-primary bg-opacity-25">
+        <TasksPage
+          tasks={props.tasks}
+          onStatusChange={onStatusChange}
+          onCreateTask={onCreateTask}
+          onRemoveTask={onRemoveTask}
+        />
       </section>
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    tasks: state.tasks,
+  };
+};
+export default connect(mapStateToProps)(Home);

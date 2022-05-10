@@ -23,7 +23,7 @@ export default function Navbar() {
         {!isAuth ? (
           <>
             <Brand />
-            <div class="navbar-nav">
+            <div className="navbar-nav">
               <div className="ml-auto d-flex ">
                 <Link to="/login" className="mx-2">
                   <Button>Login</Button>
