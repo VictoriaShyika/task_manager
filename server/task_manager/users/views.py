@@ -9,8 +9,7 @@ from .models import User
 from .serializers import *
 
 
-DATABASE = {
-    "users": [{
+DATABASE = [{
         "name": "Vitalii",
         "email": "ajax@gmail.com",
         "password": "ajax",
@@ -20,9 +19,9 @@ DATABASE = {
         "email": "ajax2@gmail.com",
         "password": "123",
         "tokens": []
-    }
-    ]
-}
+    },
+]
+
 
 
 @api_view(["POST"])
@@ -77,7 +76,22 @@ def signup(request):
     })
 
 
-# @app.route("/home", methods=["GET"])
 @api_view(["GET"])
 def home(request):
-    return Response({"text": "This page need to show your Tasks"})
+    """
+    Home function
+    """
+
+    token = request.GET.get("token")
+    current_user = None
+    for user in DATABASE:
+        if token in user["tokens"]:
+            current_user = user
+    if not current_user:
+        return Response({
+            "status": "error"
+        })
+    return Response({
+        "status": "success",
+        "token": token
+    })
