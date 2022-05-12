@@ -2,11 +2,6 @@ import random
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework import status
-
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import User
-from .serializers import *
 
 
 DATABASE = [{
@@ -31,7 +26,7 @@ def login(request):
     request_json = request.data
     login = request_json.get("email")
     password = request_json.get("password")
-    for user in DATABASE["users"]:
+    for user in DATABASE:
         if user["email"] == login or user["name"] == login:
             current_user = user
             break
@@ -62,7 +57,7 @@ def signup(request):
     email = request_json.get("email")
     password = request_json.get("password")
     token = random.randint(100000, 10000000)
-    DATABASE["users"].append({
+    DATABASE.append({
         "name": name,
         "email": email,
         "password": password,
