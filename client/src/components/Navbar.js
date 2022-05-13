@@ -3,10 +3,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context";
 import Brand from "./UI/Brand";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function Navbar() {
   const { isAuth, setIsAuth, addTask, setAddTask } = useContext(AuthContext);
-
 
   function logout() {
     setIsAuth(false);
@@ -38,10 +38,44 @@ export default function Navbar() {
           <>
             <div className="justify-content-start">
               <Brand />
-              <Button style={{ border: "none" }} onClick={addTaskToggler}>
-                Add New Task
-              </Button>
+              <button
+                className={`btn ${
+                  addTask ? "active_btn " : "text-white border-white"
+                }`}
+                onClick={addTaskToggler}
+              >
+                <span>
+                  <i className="bi bi-plus" style={{ fontSize: "1.1rem" }}></i>
+                </span>
+                Task
+              </button>
             </div>
+
+            <div className="dropdown">
+              <button
+                className="btn btn_drop text-white dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                My Tasks
+              </button>
+              <ul
+                className="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="dropdownMenuDark"
+              >
+                <li>
+                  <a className="dropdown-item" href="#">
+                    My Tasks
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    All Tasks
+                  </a>
+                </li>
+              </ul>
+            </div>
+
             <div className="justify-content-end">
               <Button onClick={logout}>Logout</Button>
             </div>

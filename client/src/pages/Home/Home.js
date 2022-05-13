@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TasksPage from "../../components/TasksPage";
 import { connect } from "react-redux";
 import { createTask, removeTask, editTask } from "../../actions";
+import HomeComponent from "../../components/HomeComponent";
 
 function Home(props) {
   // const [someText, setSomeTesxt] = useState("");
@@ -28,14 +29,14 @@ function Home(props) {
 
   return (
     <div>
-      <section className="min-vh-100 bg-primary bg-opacity-25">
+      <HomeComponent>
         <TasksPage
           tasks={props.tasks}
           onStatusChange={onStatusChange}
           onCreateTask={onCreateTask}
           onRemoveTask={onRemoveTask}
         />
-      </section>
+      </HomeComponent>
     </div>
   );
 }

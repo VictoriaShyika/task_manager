@@ -53,6 +53,7 @@ const TasksPage = (props) => {
         <div
           className="col-md-3 card text-white bg-dark bg-opacity-75"
           key={id}
+          style={{ borderRadius: "0" }}
         >
           <TasksList
             key={status}
@@ -67,23 +68,10 @@ const TasksPage = (props) => {
   };
 
   return (
-    <div
-      className="row"
-      style={{
-        padding: "57px",
-        paddingLeft: "8%",
-        paddingRight: "8%",
-        paddingBottom: "5px",
-        margin: "0",
-      }}
-    >
-      <div className="col-md-12">
+    <div className="row task-page ">
+      <div className="col-md-12 px-0">
         {addTask && (
-          <form
-            onSubmit={onCreateTask}
-            className="p-3 bg-dark bg-opacity-75 mb-1"
-            style={{ borderRadius: "0.5rem" }}
-          >
+          <form onSubmit={onCreateTask} className="p-3 mb-2 bg-dark bg-opacity-75 mb-2">
             <Input
               type="text"
               placeholder="Task Title"
@@ -100,9 +88,7 @@ const TasksPage = (props) => {
             <Button type="submit">Submit</Button>
           </form>
         )}
-        <div className="card-group" style={{ borderRadius: "0.5rem" }}>
-          {renderTaskLists()}
-        </div>
+        <div className="card-group task-side">{renderTaskLists()}</div>
       </div>
     </div>
   );

@@ -10,17 +10,33 @@ const Task = (props) => {
     props.onRemoveTask(props.task.id);
   }
   return (
-    <>
-      <div className="d-flex justify-content-between mx-1 my-1">
-        <form onChange={onStatusChange}>
-          <select className="form-select-sm bg-dark text-white fw-bold" defaultValue={props.task.status}>
+    <div className="task mb-1">
+      <div className="d-flex justify-content-end mx-1 p-1">
+        <div className="dropdown mx-3">
+          <button
+            className="btn btn_drop text-white dropdown-toggle py-0"
+            data-bs-toggle="dropdown"
+          >
+            {props.task.status}
+          </button>
+          <ul
+            className="dropdown-menu dropdown-menu-dark"
+            aria-labelledby="dropdownMenuDark"
+          >
             {TASKS_STATUSES.map((status) => (
-              <option value={status} key={status}>
-                {status}
-              </option>
+              <li key={status}>
+                <button
+                  className="dropdown-item"
+                  value={status}
+                  onClick={onStatusChange}
+                >
+                  {status}
+                </button>
+              </li>
             ))}
-          </select>
-        </form>
+          </ul>
+        </div>
+
         <button
           type="button"
           className="btn-close btn-close-white "
@@ -28,13 +44,13 @@ const Task = (props) => {
           onClick={() => onRemoveTask(props.task.id)}
         ></button>
       </div>
-      <div className="px-2" style={{ borderBottom: "solid gray 1px" }}>
-        <h3 className="card-title mt-3 text-uppercase px-2" >
+      <div className="px-2 pb-2">
+        <h3 className="card-title mt-0 text-uppercase px-2">
           {props.task.title}
         </h3>
-        <p className="card-text mb-3 fw-bold px-2">{props.task.description}</p>
+        <p className="card-text mb-3 px-2">{props.task.description}</p>
       </div>
-    </>
+    </div>
   );
 };
 

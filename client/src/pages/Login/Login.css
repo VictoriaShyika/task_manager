@@ -2,21 +2,30 @@
   /* background: #6a11cb; */
   background: linear-gradient(to right, rgb(206, 211, 216), rgb(139, 185, 236));
 }
+
 .form-control:focus,
-.form-control:hover,
+.form-control:hover {
+  border-color: white;
+  box-shadow: none;
+}
 .btn:focus,
 .btn:hover {
   border-color: white;
-  box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.5);
+  box-shadow: none;
 }
-select:focus,
-select:hover {
-  box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.5);
+.active_btn {
+  background-color: white;
+  color: black;
 }
-select {
-  border: none;
-  outline: none;
+
+.dropdown-menu .dropdown-item:active {
+  background-color: #51575c;
 }
-option {
-  font-weight: bold;
+
+.btn_drop  {
+  border: none;;
+  box-shadow: none;
+}
+.dropdown-menu {
+  width: 55px;
 }
