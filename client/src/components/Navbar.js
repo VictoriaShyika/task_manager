@@ -53,7 +53,7 @@ export default function Navbar() {
 
             <div className="dropdown">
               <button
-                className="btn btn_drop text-white dropdown-toggle"
+                className="btn text-white dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >

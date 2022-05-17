@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./UI/Button";
 
 const TASKS_STATUSES = ["On Hold", "To Do", "In Progress", "Done"];
 
@@ -10,11 +11,11 @@ const Task = (props) => {
     props.onRemoveTask(props.task.id);
   }
   return (
-    <div className="task mb-1">
+    <div className="task">
       <div className="d-flex justify-content-end mx-1 p-1">
         <div className="dropdown mx-3">
           <button
-            className="btn btn_drop text-white dropdown-toggle py-0"
+            className="btn text-white  dropdown-toggle py-0"
             data-bs-toggle="dropdown"
           >
             {props.task.status}

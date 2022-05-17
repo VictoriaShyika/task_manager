@@ -17,15 +17,16 @@
   background-color: white;
   color: black;
 }
-
+.dropdown > .btn {
+  border: solid 1px white;
+}
 .dropdown-menu .dropdown-item:active {
   background-color: #51575c;
 }
+/* .dropdown-menu {
+} */
 
-.btn_drop  {
+/* .btn_drop  {
   border: none;;
   box-shadow: none;
-}
-.dropdown-menu {
-  width: 55px;
-}
+} */

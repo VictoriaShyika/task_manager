@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "./UI/Button";
 import Input from "./UI/Input";
 import Textarea from "./UI/Textarea";
@@ -44,6 +44,12 @@ const TasksPage = (props) => {
     props.onCreateTask({ title, description });
     resetForm();
   };
+  useEffect(() => {
+    if (!addTask) {
+      setEmptyTitle("");
+      setEmptyDescription("");
+    }
+  }, [addTask]);
 
   const renderTaskLists = () => {
     const { tasks } = props;
@@ -51,7 +57,7 @@ const TasksPage = (props) => {
       const statusTasks = tasks.filter((task) => task.status === status);
       return (
         <div
-          className="col-md-3 card text-white bg-dark bg-opacity-75"
+          className="card-col col-md-3 card text-white bg-transparent "
           key={id}
           style={{ borderRadius: "0" }}
         >
@@ -71,7 +77,10 @@ const TasksPage = (props) => {
     <div className="row task-page ">
       <div className="col-md-12 px-0">
         {addTask && (
-          <form onSubmit={onCreateTask} className="p-3 mb-2 bg-dark bg-opacity-75 mb-2">
+          <form
+            onSubmit={onCreateTask}
+            className="p-3 mb-2 bg-dark bg-opacity-75 mb-2"
+          >
             <Input
               type="text"
               placeholder="Task Title"

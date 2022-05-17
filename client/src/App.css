@@ -1,8 +1,9 @@
-html, body {
+html,
+body {
   min-height: 100vh;
 }
 * {
-  font-family: "Roboto", sans-serif 
+  font-family: "Roboto", sans-serif;
 }
 body::-webkit-scrollbar {
   width: 5px;
@@ -23,10 +24,18 @@ body::-webkit-scrollbar-thumb {
   padding-right: 10%;
   margin: 0;
 }
-.task-side{
+.task-side {
   margin-top: 10px;
-  min-height: 64vh;
+  /* min-height: 64vh; */
 }
 .task {
   background-color: #333940;
+  margin-bottom: 1px;
+}
+.card {
+  border: none;
+}
+.card-col {
+  margin-left: 2px;
+  margin-right: 2px;
 }
